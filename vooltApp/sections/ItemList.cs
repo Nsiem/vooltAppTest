@@ -6,9 +6,9 @@
 
         public int Order { get; set; }
 
-        public string Heading = "Our Services";
+        public string Heading { get; set; } = "Our Services";
 
-        public List<Dictionary<string, dynamic>> Cards = new List<Dictionary<string, dynamic>>()
+        public List<Dictionary<string, dynamic>> Cards { get; set; } = new List<Dictionary<string, dynamic>>()
         {
             new Dictionary<string, dynamic>()
             {
@@ -35,7 +35,7 @@
             },
         };
 
-        public Dictionary<string, dynamic> Button = new Dictionary<string, dynamic>() {
+        public Dictionary<string, dynamic> Button { get; set; } = new Dictionary<string, dynamic>() {
             {"text", "text for the button"},
             {"status", "status of display (as a string)"},
             {"logo", new Uri("https://cdn.pixabay.com/photo/2016/11/22/11/48/mountain-1849091_960_720.png")},

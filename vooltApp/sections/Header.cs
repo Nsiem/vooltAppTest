@@ -6,23 +6,23 @@
 
         public int Order { get; set; }
 
-        public string Business_name = "My Business";
+        public string Business_name { get; set; } = "My Business";
 
-        public Uri Logo = new Uri("https://cdn.pixabay.com/photo/2016/11/22/11/48/mountain-1849091_960_720.png");
+        public Uri Logo { get; set; } = new Uri("https://cdn.pixabay.com/photo/2016/11/22/11/48/mountain-1849091_960_720.png");
 
-        public bool Logo_displayed = false;
+        public bool Logo_displayed { get; set; } = false;
 
-        public Dictionary<string, dynamic> Menu = new Dictionary<string, dynamic>(){
-            {"About US", new Uri("aboutUsLink.com")},
-            { "Reviews", new Uri("reviewsLink.com")},
+        public Dictionary<string, dynamic> Menu { get; set; } = new Dictionary<string, dynamic>(){
+            {"About US", new Uri("https://aboutUsLink.com")},
+            { "Reviews", new Uri("https://reviewsLink.com")},
             { "Services", new Dictionary<string, dynamic>(){
-                {"service1", new Uri("service1Link.com")},
-                {"service2", new Uri("service2Link.com")}
+                {"service1", new Uri("https://service1Link.com")},
+                {"service2", new Uri("https://service2Link.com")}
                 }
             } 
         };
 
-        public Dictionary<string, dynamic> Button = new Dictionary<string, dynamic>() {
+        public Dictionary<string, dynamic> Button { get; set; } = new Dictionary<string, dynamic>() {
             {"text", "text for the button"},
             {"status", "status of display (as a string)"},
             {"logo", new Uri("https://cdn.pixabay.com/photo/2016/11/22/11/48/mountain-1849091_960_720.png")},
