@@ -60,5 +60,19 @@ namespace vooltApp.sections
             info.AddValue("ImageAlignment", ImageAlignment);
             info.AddValue("ContentAlignment", ContentAlignment);
         }
+
+        public static Hero ConvertDictionary(Dictionary<string, dynamic> dict)
+        {
+            Hero ConvertedHero = new Hero(dict["section_Id"], dict["order"]);
+            ConvertedHero.ClassType = dict["classType"];
+            ConvertedHero.Heading = dict["heading"];
+            ConvertedHero.Text = dict["text"];
+            ConvertedHero.Image = dict["image"];
+            ConvertedHero.ImageAlignment = dict["imageAlignment"];
+            ConvertedHero.ContentAlignment = dict["contentAlignment"];
+            ConvertedHero.Button = dict["button"];
+
+            return ConvertedHero;
+        }
     }
 }

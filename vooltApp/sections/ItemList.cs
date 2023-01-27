@@ -73,6 +73,16 @@ namespace vooltApp.sections
             info.AddValue("Button", Button);
         }
 
+        public static ItemList ConvertDictionary(Dictionary<string, dynamic> dict)
+        {
+            ItemList ConvertedItemList = new ItemList(dict["section_Id"], dict["order"]);
+            ConvertedItemList.ClassType = dict["classType"];
+            ConvertedItemList.Heading = dict["heading"];
+            ConvertedItemList.Cards = dict["cards"];
+            ConvertedItemList.Button = dict["button"];
+
+            return ConvertedItemList;
+        }
 
     }
 }

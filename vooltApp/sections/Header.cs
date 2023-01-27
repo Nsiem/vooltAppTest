@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json.Linq;
+using System.Runtime.Serialization;
 using System.Xml.Linq;
 
 namespace vooltApp.sections
@@ -60,6 +61,19 @@ namespace vooltApp.sections
             info.AddValue("Logo_displayed", Logo_displayed);
             info.AddValue("Menu", Menu);
             info.AddValue("Button", Button);
+        }
+
+        public void ConvertDictionary(JObject dict)
+        {
+            //Header ConvertedHeader = new Header(dict["section_Id"], dict["order"]);
+/*            ClassType = dict["classType"];
+            Business_name = dict["business_name"];
+            Logo = dict["logo"];
+            Logo_displayed = dict["logo_displayed"];
+            Menu = dict["menu"];
+            Button = dict["button"];*/
+
+            //return ConvertedHeader;
         }
     }
 }
