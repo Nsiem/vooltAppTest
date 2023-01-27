@@ -90,29 +90,9 @@ namespace vooltApp.Controllers
             List<string> JsonStrings = new List<string>();
             JsonStrings.AddRange(JsonStringLines);
 
-            List<dynamic> sectionModels = new List<dynamic>();
-            foreach (string JsonString in JsonStrings)
-            {
-                JObject json = JObject.Parse(JsonString);
-                string ClassType = json["ClassType"].Value<string>();
-                switch (ClassType)
-                {
-                    case "Header":
-                        Header JsonHeader = JsonConvert.DeserializeObject<Header>(JsonString);
-                        sectionModels.Add(JsonHeader);
-                        break;
-                    case "Hero":
-                        Hero JsonHero = JsonConvert.DeserializeObject<Hero>(JsonString);
-                        sectionModels.Add(JsonHero);
-                        break;
-                    case "ItemList":
-                        ItemList JsonItemList = JsonConvert.DeserializeObject<ItemList>(JsonString);
-                        sectionModels.Add(JsonItemList);
-                        break;
-                }
-            }
+            List<dynamic> sectionModels = Sections.DeserializeSections(JsonStrings);
 
-            //FINDS AND REPLACES SECTION
+            //FINDS AND DELETE SECTION
             int index = 0;
             foreach (var Model in sectionModels)
             {
@@ -124,14 +104,7 @@ namespace vooltApp.Controllers
                 index++;
             }
 
-            string SectionModelsJson = "";
-            foreach (var modelJson in sectionModels)
-            {
-                SectionModelsJson += JsonConvert.SerializeObject(modelJson);
-                SectionModelsJson += "\n";
-            }
-
-            System.IO.File.WriteAllText($"dataModelDB/{key}.json", SectionModelsJson);
+            Sections.SerializeAndWriteToFile(key, sectionModels);
 
             return Ok($"Deleted section from file: {key}");
 
